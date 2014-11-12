@@ -22,14 +22,15 @@
                     password: {
                         required: true,
                         minlength: 9,
-
+                        atLeastOne: true
                     },
 
                 messages: {
                     username: "Please enter a username between 7 and 26 characters.",
                     password: {
                         required: "Please provide a password",
-                        minlength: "Please enter a password with at least 9 characters, using at least one number and one letter."
+                        minlength: "Please enter a password with at least 9 characters.",
+                        atLeastOne: "Please use at least one letter and one number."
                     },
                     email: "Please enter a valid email address",
                 },
@@ -48,9 +49,6 @@
 
 })(jQuery, window, document);
 
-/*jQuery.validator.addMethod('atLeastOne', function (value) {
-  return /[a-z].*[0-9]|[0-9].*[a-z]/i;
+jQuery.validator.addMethod('atLeastOne', function (value, element) {
+  return /[a-z].*[0-9]|[0-9].*[a-z]/i.test(value);
 }, "The password should contain at least one letter and one number.");
-});
-  setupFormValidation: function()
-  {*/
